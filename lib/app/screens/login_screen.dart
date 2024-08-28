@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:moster_app/app/widgets/my_button.dart';
 import 'package:moster_app/app/widgets/my_container.dart';
 
 import '../widgets/my_sized_box.dart';
+import '../widgets/my_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -53,69 +55,20 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              TextFormField(
-                cursorColor: const Color(0xFFF8FE11),
+              myTextField(
+                label: 'Email',
                 keyboardType: TextInputType.emailAddress,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-                decoration: const InputDecoration(
-                  label: Text(
-                    'Email',
-                    style: TextStyle(
-                      color: Color(0xFF808696),
-                    ),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFF8FE11),
-                    ),
-                  ),
-                ),
               ),
               mySizedBox(height: 24),
-              TextFormField(
-                cursorColor: const Color(0xFFF8FE11),
+              myTextField(
+                label: 'Password',
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-                decoration: const InputDecoration(
-                  label: Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color(0xFF808696),
-                    ),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFF8FE11),
-                    ),
-                  ),
-                ),
               ),
               mySizedBox(height: 24),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const LoginScreen();
-                    }));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFF8FE11),
-                    fixedSize: const Size(311, 48),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Color(0xFF141414),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
+                child:
+                    myButton(context: context, text: 'Login', onPressed: () {}),
               ),
               mySizedBox(height: 24),
               const Center(

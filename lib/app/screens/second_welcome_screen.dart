@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moster_app/app/screens/login_screen.dart';
+import 'package:moster_app/app/screens/third_welcome_screen.dart';
+import 'package:moster_app/app/widgets/my_button.dart';
 
 import '../widgets/my_sized_box.dart';
 
@@ -44,24 +45,14 @@ class SecondWelcomeScreen extends StatelessWidget {
             ),
             // const SizedBox(height: 16),
             mySizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const LoginScreen();
-                }));
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF8FE11),
-                fixedSize: const Size(311, 48),
-              ),
-              child: const Text(
-                'Login',
-                style: TextStyle(
-                  color: Color(0xFF141414),
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+            myButton(
+                context: context,
+                text: 'Login',
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ThirdWelcomeScreen();
+                  }));
+                }),
             mySizedBox(height: 16),
             OutlinedButton(
               onPressed: () {},
