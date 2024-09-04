@@ -4,7 +4,7 @@ import 'package:moster_app/app/screens/signup_screen.dart';
 
 import '../widgets/my_button.dart';
 import '../widgets/my_sized_box.dart';
-
+import 'login_screen.dart';
 
 class ThirdWelcomeScreen extends StatelessWidget {
   const ThirdWelcomeScreen({super.key});
@@ -64,14 +64,14 @@ class ThirdWelcomeScreen extends StatelessWidget {
                 text: 'Login',
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ThirdWelcomeScreen();
+                    return LoginScreen();
                   }));
                 }),
             mySizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const SignupScreen();
+                  return SignupScreen();
                 }));
               },
               style: ElevatedButton.styleFrom(

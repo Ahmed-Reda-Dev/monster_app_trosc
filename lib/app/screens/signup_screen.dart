@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:moster_app/app/widgets/auth_fields.dart';
 
 import '../widgets/my_button.dart';
 import '../widgets/my_container.dart';
@@ -7,7 +8,8 @@ import '../widgets/my_sized_box.dart';
 import '../widgets/my_text_field.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+  SignupScreen({super.key});
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -68,20 +70,20 @@ class SignupScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              myTextField(
-                label: 'Email',
-                keyboardType: TextInputType.emailAddress,
+              AuthFields(
+                formKey: formKey,
               ),
               mySizedBox(height: 24),
-              myTextField(
-                label: 'Password',
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
-              ),
-              mySizedBox(height: 24),
-              myTextField(
+              MyTextField(
                 label: 'Name',
                 keyboardType: TextInputType.text,
+                obscureText: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Name cannot be empty';
+                  }
+                  return null;
+                },
               ),
               mySizedBox(height: 24),
               Center(
@@ -140,6 +142,4 @@ class SignupScreen extends StatelessWidget {
       ),
     );
   }
-
- 
 }

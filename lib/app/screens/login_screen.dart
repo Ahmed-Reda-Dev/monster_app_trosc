@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:moster_app/app/widgets/auth_fields.dart';
 import 'package:moster_app/app/widgets/my_button.dart';
 import 'package:moster_app/app/widgets/my_container.dart';
 
 import '../widgets/my_sized_box.dart';
-import '../widgets/my_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -55,20 +56,19 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              myTextField(
-                label: 'Email',
-                keyboardType: TextInputType.emailAddress,
-              ),
-              mySizedBox(height: 24),
-              myTextField(
-                label: 'Password',
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
+              AuthFields(
+                formKey: formKey,
               ),
               mySizedBox(height: 24),
               Center(
-                child:
-                    myButton(context: context, text: 'Login', onPressed: () {}),
+                child: myButton(
+                    context: context,
+                    text: 'Login',
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        debugPrint('Login');
+                      }
+                    }),
               ),
               mySizedBox(height: 24),
               const Center(
